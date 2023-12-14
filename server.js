@@ -1,6 +1,7 @@
 const express = require("express");
 const dotenv = require('dotenv')
 const connectDatabase = require('./config/db');
+const cors = require('cors');
 
 // Configure the environment file
 dotenv.config();
@@ -19,6 +20,7 @@ const routeNotFound = require('./middleware/routenotFound');
 
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 
 app.get('/', (req, res) => {
